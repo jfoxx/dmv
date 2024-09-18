@@ -1,17 +1,17 @@
 async function getData() {
-    const lastName = document.getElementById('lastName').value;
-    fetch(`https://t79y8f51c5.execute-api.us-east-2.amazonaws.com/latest?lastName=${lastName}`)
+  const lastName = document.getElementById('lastName').value;
+  fetch(`https://t79y8f51c5.execute-api.us-east-2.amazonaws.com/latest?lastName=${lastName}`)
     .then((response) => response.json())
     .then((json) => {
-        const result = JSON.parse(json.body).result;
-        const target = document.getElementById('vehicle-results');
-        target.textContent = '';
-        if (result === undefined) {
-            target.append('No vehicles found');
-        } else {
-            target.append(result);
-        }
-    })
+      const result = JSON.parse(json.body).result;
+      const target = document.getElementById('vehicle-results');
+      target.textContent = '';
+      if (result === undefined) {
+          target.append('No vehicles found');
+      } else {
+          target.append(result);
+      }
+  })
 }
 
 export default function decorate(block) {
